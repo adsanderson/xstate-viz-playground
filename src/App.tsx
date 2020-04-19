@@ -4,6 +4,8 @@ import { MachineViz } from "@xstate/viz";
 import { useMachine } from "@xstate/react";
 import { createMachine, State, interpret } from "xstate";
 
+import "@xstate/viz/themes/dark.css";
+
 const toggleMachine = createMachine({
   id: "toggle",
   initial: "inactive",
