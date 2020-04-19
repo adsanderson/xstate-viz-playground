@@ -11,17 +11,17 @@ const toggleMachine = createMachine({
   initial: "inactive",
   states: {
     inactive: { on: { TOGGLE: "active" } },
-    active: { on: { TOGGLE: "inactive" } }
-  }
+    active: { on: { TOGGLE: "inactive" } },
+  },
 });
 
 export default function App() {
-  const [current] = useMachine(toggleMachine);
+  const [current, send] = useMachine(toggleMachine);
   return (
-    <div className="App">
-      <h1>Hello CodeSandbox</h1>
-      <h2>Start editing to see some magic happen!</h2>
+    <main className="App">
+      <h1>XState vix test</h1>
+      <button onClick={() => send("TOGGLE")}>Toggle</button>
       <MachineViz machine={toggleMachine} state={current} />
-    </div>
+    </main>
   );
 }
